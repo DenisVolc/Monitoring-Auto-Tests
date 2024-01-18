@@ -29,22 +29,22 @@ public class LoginPage   {
     private static SelenideElement sidebar;
 
 
-    public void setLogin(String login){//ввод имэила
+    public static void setLogin(String login){//ввод имэила
         loginInput.sendKeys(login);
     }
-    public void setPassword(String password){//ввод пароля
+    public static void setPassword(String password){//ввод пароля
         passwordInput.sendKeys(password);
     }
-    public void clickRememberMeCheckbox(){//нажать чекбокс "Оставаться в системе"
+    public static void clickRememberMeCheckbox(){//нажать чекбокс "Оставаться в системе"
         rememberMeCheckbox.click();
     }
-    public void clickLoginButton(){//нажать кнопку "Войти"
+    public static void clickLoginButton(){//нажать кнопку "Войти"
         loginButton.click();
     }
-    public void clickSandwichButton(){//нажать кнопку-бутерброд
+    public static void clickSandwichButton(){//нажать кнопку-бутерброд
         sandwichButton.click();
     }
-    public boolean isSidebarIsDisplayed(){
+    public static boolean isSidebarIsDisplayed(){
         return sidebar.isDisplayed();
     }
 
