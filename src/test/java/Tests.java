@@ -21,9 +21,10 @@ public class Tests {
     @org.junit.Test
     public void LoginTest(){
         Selenide.open(URL.MAIN_URL);
-        LoginPage.setLogin(Accounts.ADMIN_EMAIL);
-        LoginPage.setPassword(Accounts.ADMIN_PASSWORD);
-        LoginPage.clickLoginButton();
+        LoginPage loginPage = new LoginPage(driver);
+        loginPage.setLogin(Accounts.ADMIN_EMAIL);
+        loginPage.setPassword(Accounts.ADMIN_PASSWORD);
+        loginPage.clickLoginButton();
     }
 
 }
