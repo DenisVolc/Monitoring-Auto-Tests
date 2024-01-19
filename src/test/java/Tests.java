@@ -19,12 +19,14 @@ public class Tests {
 //        driver = new ChromeDriver();
         WebDriverManager.firefoxdriver().setup();
         driver = new FirefoxDriver();
+
     }
 
     @org.junit.Test
     public void LoginTest(){
-        Selenide.open(URL.MAIN_URL);
         LoginPage loginPage = new LoginPage(driver);
+        Selenide.open(URL.MAIN_URL);//TODO прописать параметр  --allowed-ips
+
 
         loginPage.setLogin(Accounts.ADMIN_EMAIL);
         loginPage.setPassword(Accounts.ADMIN_PASSWORD);
