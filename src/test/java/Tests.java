@@ -26,8 +26,6 @@ public class Tests {
     public void LoginTest(){
         LoginPage loginPage = new LoginPage(driver);
         Selenide.open(URL.MAIN_URL);//TODO прописать параметр  --allowed-ips
-
-
         loginPage.setLogin(Accounts.ADMIN_EMAIL);
         loginPage.setPassword(Accounts.ADMIN_PASSWORD);
         loginPage.clickLoginButton();
