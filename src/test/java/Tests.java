@@ -16,7 +16,6 @@ public class Tests {
 
     @org.junit.Test
     public void LoginTest(){
-//        LoginPage loginPage = new LoginPage(driver);
 //        Configuration.browser = "firefox";
         Selenide.open(URL.MAIN_URL);
         LoginPage loginPage = new LoginPage();

@@ -26,7 +26,7 @@ public class LoginPage   {
 
     private SelenideElement loginButton = $(byXpath("//button[contains(text(),'Войти')]"));// Кнопка "Войти ->"
 
-    private SelenideElement sandwichButton = $(byClassName("px-2 text-[#ffffff] fixed left-3 bottom-4 z-50")); // Кнопка-бутерброд в нижнем левом углу
+    private SelenideElement sandwichButton = $(byCssSelector("button[class='px-2 text-[#ffffff] fixed left-3 bottom-4 z-50']")); // Кнопка-бутерброд в нижнем левом углу
 
     private SelenideElement sidebar = $(byId("sidebar")); // Синяя полоса слева с лого компании
 
