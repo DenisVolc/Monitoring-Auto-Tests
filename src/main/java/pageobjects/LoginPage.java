@@ -8,16 +8,6 @@ import static com.codeborne.selenide.Selenide.*;
 
 
 public class LoginPage   {
-
-
-
-    String checkout;
-
-
-//    @FindBy(how = How.XX, using = "YYY") // Comment
-//    private SelenideElement DDD;
-
-//    @FindBy(how = How.ID, using = "user_email")
     private SelenideElement loginInput = $(byId("user_email"));// поле ввода логина
 
     private SelenideElement passwordInput = $(byId("user_password"));// поле ввода пароля
@@ -49,5 +39,4 @@ public class LoginPage   {
     public  boolean isSidebarIsDisplayed(){
         return sidebar.isDisplayed();
     }
-
 }
