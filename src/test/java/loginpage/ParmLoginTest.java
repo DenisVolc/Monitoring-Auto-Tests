@@ -3,6 +3,7 @@ package loginpage;
 import com.codeborne.selenide.Selenide;
 import constatns.Accounts;
 import constatns.URL;
+import org.junit.After;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -17,7 +18,7 @@ public class ParmLoginTest {
     private String password;
     private boolean isRememberMe; //чекбокс оставаться в системе
     private boolean isSidePanel;//боковая панель
-    private short result;
+    private int result;
 //        SUCCESS, //0 - успешный вход
 //        WRONG_PASSWORD,    // 1 - неправильынй пароль
 //        EMPTY_PASSWORD,// 2 - пустой пароль
@@ -25,7 +26,7 @@ public class ParmLoginTest {
 //        EMPTY_ACCOUNT,// 4 - пустой аккаунт
     // 5 - неверный формат
 
-    public ParmLoginTest(String login, String password, boolean rememberMe, boolean sidePanel, short result ) {
+    public ParmLoginTest(String login, String password, boolean rememberMe, boolean sidePanel, int result ) {
         this.login = login;
         this.password = password;
         this.isRememberMe = rememberMe;
@@ -36,6 +37,7 @@ public class ParmLoginTest {
     @Parameterized.Parameters // добавили аннотацию
     public static Object[][]loginCombinations(){
         return new Object[][]{
+                  {"admin@test.com","adminadmin123",true,true,1},//1
                 {Accounts.ADMIN_EMAIL,Accounts.ADMIN_PASSWORD,true,true,0},//1
                 {Accounts.ADMIN_EMAIL,Accounts.WRONG_PASSWORD,false,false,1},//2
                 {Accounts.ADMIN_EMAIL,Accounts.SYMBOLS_PASSWORD,true,false,1},//3
@@ -73,4 +75,7 @@ public class ParmLoginTest {
 //        assertEquals(login, homePage.getAccountName()); // сравниваю что отображаемый логи совпадает с введеным
         System.out.println(result);
     }
+    @After
+    public void Close(){Selenide.closeWindow();}
+
 }
