@@ -7,6 +7,8 @@ import constatns.Password;
 import constatns.URL;
 
 
+import java.util.Objects;
+
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
 
@@ -37,14 +39,18 @@ public class LoginPage   {
         sandwichButton.click();
     }
     public  boolean isSidebarDisplayed(){
-        return sidebar.isDisplayed();
+        if (sidebar.getAttribute("style").isBlank()){
+            clickSandwichButton();
+            clickSandwichButton();
+        }
+        return sidebar.getAttribute("style").contains("flex");
+
     }
     public boolean isWrongLoginPasswordDisplayed(){
         return wrongLoginPassword.isDisplayed();
     }
 
     public void login(String email, String password){
-
         setLogin(email); // ввожу логин
         setPassword(password); // ввожу пароль
         clickLoginButton(); // нажимаю кнопку войти

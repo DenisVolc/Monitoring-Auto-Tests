@@ -1,4 +1,4 @@
-package loginpage;
+package loginpage.emailtest;
 
 import com.codeborne.selenide.Selenide;
 import constatns.Email;
@@ -19,13 +19,13 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class PositivLoginTestParm {
+public class PositivLoginParmTest {
     private String email;
 
     private int number;
 
 
-    public PositivLoginTestParm(String email) {
+    public PositivLoginParmTest(String email) {
 
         this.email = email;
     }
@@ -58,10 +58,6 @@ public class PositivLoginTestParm {
         loginPage.login(email, Password.ADMIN);
         HomePage homePage = new HomePage();
         assertEquals(email, homePage.getAccountName()); // сравниваю что отображаемый логи совпадает с введеным
-
-
-
-
     }
     @After
     public void Close(){
