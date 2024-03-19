@@ -4,6 +4,7 @@ import com.codeborne.selenide.Selenide;
 import constatns.Email;
 import constatns.Password;
 import constatns.URL;
+import loginpage.SuperTest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -19,7 +20,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
 @RunWith(Parameterized.class)
-public class PositivLoginParmTest {
+public class PositivLoginParmTest extends SuperTest {
     private String email;
 
     private int number;
@@ -40,9 +41,7 @@ public class PositivLoginParmTest {
     @Before
     public void Before(){
         System.out.println("Expected: " + email);
-
         Selenide.open(URL.MAIN_URL); //открываю нужную страницы
-        LoginPage loginPage = new LoginPage();
         loginPage.login(Email.ADMIN, Password.ADMIN);
         HomePage.SETTINGS.click();
         UsersPage.USERS_BUTTON.click();

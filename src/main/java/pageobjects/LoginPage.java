@@ -5,6 +5,7 @@ import com.codeborne.selenide.SelenideElement;
 import constatns.Email;
 import constatns.Password;
 import constatns.URL;
+import io.qameta.allure.Step;
 
 
 import java.util.Objects;
@@ -49,7 +50,7 @@ public class LoginPage   {
     public boolean isWrongLoginPasswordDisplayed(){
         return wrongLoginPassword.isDisplayed();
     }
-
+    @Step("Авторизация с логином {email} и паролем {password}")
     public void login(String email, String password){
         setLogin(email); // ввожу логин
         setPassword(password); // ввожу пароль

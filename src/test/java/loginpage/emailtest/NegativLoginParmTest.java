@@ -3,6 +3,9 @@ package loginpage.emailtest;
 import com.codeborne.selenide.Selenide;
 import constatns.Password;
 import constatns.URL;
+import io.qameta.allure.Description;
+import io.qameta.allure.junit4.DisplayName;
+import loginpage.SuperTest;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,15 +17,17 @@ import static com.codeborne.selenide.Selenide.$;
 import static org.junit.Assert.*;
 
 @RunWith(Parameterized.class)
-public class NegativLoginParmTest {
-    private String email;
+public class NegativLoginParmTest extends SuperTest {
+
+    @Parameterized.Parameter
+    public String email;
 
     private int number;
 
 
-    public NegativLoginParmTest(String email) {
-        this.email = email;
-    }
+//    public NegativLoginParmTest(String email) {
+//        this.email = email;
+//    }
 
     @Parameterized.Parameters // добавили аннотацию
     public static Object[][]loginCombinations(){
@@ -50,12 +55,13 @@ public class NegativLoginParmTest {
     @Before
     public void Before(){
         System.out.println("Expected: " + email);
-        Selenide.open(URL.MAIN_URL); //открываю нужную страницы
+        doBefore();
+//        Selenide.open(URL.MAIN_URL); //открываю нужную страницы
     }
     @Test
+//    @DisplayName("Негативная проверка неправильным логином: {email}")
+    @Description("Негативная проверка неправильным логином")
     public void Test(){
-        LoginPage loginPage = new LoginPage();
-        Selenide.open(URL.MAIN_URL); //открываю нужную страницы
         loginPage.login(email, Password.ADMIN);
         boolean result = !loginPage.isWrongLoginPasswordDisplayed();
         assertTrue(result);
